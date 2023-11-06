@@ -1,0 +1,183 @@
+.home-container {
+  .logo-name {
+    font-size: 30px;
+    margin: 12px 0 0 10px;
+    font-family: "Abril Fatface", serif;
+
+    @media (max-width: 768px) {
+      font-size: 22px;
+    }
+  }
+
+  .content-container {
+    padding: 20vh 23vw 5vh 23vw;
+    background-image: url(../../../assets/images/brain-1.png);
+    background-color: rgba(255, 255, 255, 0.5);
+    background-blend-mode: overlay;
+    background-repeat: no-repeat;
+    background-position: right;
+
+    @media (max-width: 768px) {
+      padding: 10vh 15vw 5vh 15vw;
+      background-position: center;
+    }
+
+    @media (max-width: 576px) {
+      padding: 10vh 10vw 5vh 10vw;
+    }
+
+    .content-text {
+      font-size: 72px;
+      line-height: 65px;
+
+      @media (max-width: 992px) {
+        font-size: 48px;
+        line-height: 50px;
+      }
+
+      @media (max-width: 768px) {
+        font-size: 36px;
+        line-height: 45px;
+      }
+    }
+
+    .first {
+      height: 35vh;
+
+      @media (max-width: 768px) {
+        height: 20vh;
+      }
+
+      @media (max-width: 576px) {
+        height: 25vh;
+      }
+    }
+  }
+
+  .button {
+    height: 40px;
+    width: 90px;
+  }
+
+  .accordion {
+    padding: 0 23vw;
+    background-color: rgb(173, 215, 230, 0.5);
+
+    @media (max-width: 768px) {
+      padding: 0 15vw;
+    }
+
+    @media (max-width: 576px) {
+      padding: 0 10vw;
+    }
+  }
+
+  .content-container-bottom {
+    padding: 5vh 23vw 2vh 23vw;
+
+    @media (max-width: 768px) {
+      padding: 5vh 15vw 2vh 15vw;
+    }
+
+    @media (max-width: 576px) {
+      padding: 5vh 10vw 2vh 10vw;
+    }
+
+    img {
+      @media (max-width: 992px) {
+        height: 350px;
+      }
+
+      @media (max-width: 768px) {
+        height: 250px;
+      }
+    }
+
+    .content-text-bottom {
+      font-size: 54px;
+      line-height: 65px;
+      font-weight: 700;
+
+      @media (max-width: 992px) {
+        font-size: 48px;
+        line-height: 50px;
+      }
+
+      @media (max-width: 768px) {
+        font-size: 36px;
+        line-height: 45px;
+      }
+    }
+  }
+
+  .benefits-grid {
+    padding: 0 23vw 5vh 23vw;
+
+    @media (max-width: 768px) {
+      padding: 0 15vw 5vh 15vw;
+    }
+
+    @media (max-width: 576px) {
+      padding: 0 5vw 5vh 5vw;
+    }
+
+    .text-title {
+      font-size: 45px;
+      line-height: 50px;
+      font-weight: 700;
+
+      @media (max-width: 992px) {
+        font-size: 40px;
+      }
+
+      @media (max-width: 768px) {
+        font-size: 34px;
+        line-height: 45px;
+      }
+    }
+
+    mat-grid-tile {
+      background: lightblue;
+      transform: scale(1);
+      transition: 0.3s ease-in-out;
+
+      .title {
+        text-align: center;
+      }
+
+      &:hover {
+        background: #0b5ed7;
+        color: #fff;
+        cursor: pointer;
+        transform: scale(1.1);
+        z-index: 1;
+
+        @media (max-width: 992px) {
+          height: 215px;
+          width: 300px;
+        }
+
+        .title {
+          display: none;
+        }
+
+        .detail {
+          display: block;
+          text-align: center;
+
+          @media (max-width: 992px) {
+            font-size: 12px;
+          }
+        }
+      }
+    }
+
+    .detail {
+      display: none;
+    }
+  }
+
+  .bottom {
+    background-color: rgb(173, 215, 230, 0.5);
+  }
+}
