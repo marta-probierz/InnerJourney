@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "innerjourney-13549": {
+      "hosting": {
+        "innerjourney": [
+          "innerjourney-13549"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "innerjourney-13549"
+  }
+}

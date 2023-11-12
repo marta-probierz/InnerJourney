@@ -1,0 +1,33 @@
+<div class="login-container container-fluid mt-3">
+  <div class="row">
+    <div class="col-12">
+      <div class="d-flex justify-content-between mb-2" [routerLink]='["/"]' style="cursor: pointer;">
+        <div class="d-flex">
+          <img
+            src="../../../assets/logo/logo-without-text.png"
+            alt="Logo"
+            height="50"
+          />
+          <p class="logo-name">Inner Yourney</p>
+        </div>
+      </div>
+      <div class="container-content d-flex flex-column justify-content-center">
+        <h2 class="content-header text-center mt-5 mb-5">Welcome to <span class="name">Inner Journey!</span></h2>
+        <p class="content-text">
+          Here, you embark on your <span class="name"><b>Inner Journey</b></span> to better understand yourself and achieve mental balance. 
+          Discover tools for managing emotions, reducing stress, and attaining peace of mind. 
+          Log in with Google to unlock the full potential of the app. We're here to support 
+          you at every stage.
+        </p>
+        <div class="text-center mt-5">
+          <img 
+            (click)="signInWithGoogle()" 
+            class="google-button" 
+            alt="Google Button" 
+            src="../../../assets/images/google-button.svg" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<p-toast></p-toast>
