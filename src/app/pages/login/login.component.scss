@@ -1,0 +1,70 @@
+.login-container {
+  .logo-name {
+    font-size: 30px;
+    margin: 12px 0 0 10px;
+    font-family: "Abril Fatface", serif;
+
+    @media (max-width: 768px) {
+      font-size: 22px;
+    }
+  }
+
+  .container-content {
+    height: 80vh;
+    padding: 0 23vw;
+    background-image: url(../../../assets/images/login.png);
+    background-color: rgba(255, 255, 255, 0.7);
+    background-blend-mode: overlay;
+    background-repeat: no-repeat;
+    background-position: right;
+
+    @media (max-width: 768px) {
+      padding: 0 15vw;
+      background-position: center;
+      background-color: rgba(255, 255, 255, 0.8);
+    }
+
+    @media (max-width: 576px) {
+      padding: 0 10vw;
+    }
+
+    .content-header {
+      font-size: 72px;
+      line-height: 65px;
+
+      @media (max-width: 992px) {
+        font-size: 48px;
+        line-height: 50px;
+      }
+
+      @media (max-width: 768px) {
+        font-size: 36px;
+        line-height: 45px;
+      }
+    }
+
+    .name {
+      color: #0b5ed7;
+    }
+
+    .content-text {
+      font-size: 24px;
+      line-height: 30px;
+      text-align: justify;
+
+      @media (max-width: 768px) {
+        font-size: 16px;
+        line-height: 25px;
+      }
+    }
+
+    .google-button {
+      cursor: pointer;
+    
+      &:hover {
+        box-shadow: 0 1px 2px 0 rgba(60, 64, 67, .30), 0 1px 3px 1px rgba(60, 64, 67, .15);
+        opacity: 80%;
+      }
+    }
+  }
+}
