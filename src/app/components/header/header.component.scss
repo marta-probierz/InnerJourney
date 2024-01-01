@@ -1,0 +1,9 @@
+.logo-name {
+  font-size: 30px;
+  margin: 12px 0 0 10px;
+  font-family: "Abril Fatface", serif;
+
+  @media (max-width: 768px) {
+    font-size: 22px;
+  }
+}
