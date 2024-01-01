@@ -17,13 +17,17 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SpinnerModalComponent } from './components/spinner-modal/spinner-modal.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent, 
     HomeComponent, 
     LoginComponent, 
-    SpinnerModalComponent
+    SpinnerModalComponent, 
+    DashboardComponent, 
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

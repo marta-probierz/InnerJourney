@@ -1,0 +1,42 @@
+<div class="dashboard-container container-fluid mt-3">
+  <div class="row">
+    <div class="col-12">
+      <div class="d-flex justify-content-between mb-2">
+        <app-header></app-header>
+        <button (click)="logOut()" class="btn btn-primary button">Log Out</button>
+      </div>
+    </div>
+    <div class="dashboard-content">
+      <div class="d-flex flex-column justify-content-center">
+        <h2 class="content-header text-center mt-5 mb-5">
+          It's cool that you're here <span *ngIf="currentUser" class="currentUser"> {{ currentUser.displayName }}</span>
+        </h2>
+      </div>
+      <div class="content-text">
+        <div class="container overflow-hidden">
+          <div class="row gy-4">
+            <div class="col-12 col-md-5">
+              <div class="p-3">Mental Health Tracking</div>
+            </div>
+            <div class="col-12 col-md-7">
+              <div class="p-3">Motivationed Quotes and Articles</div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="p-3">Self-Help Tools</div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="p-3">Statistics and Progress</div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="p-3">Community and Support</div>
+            </div>
+            <div class="col-12">
+              <div class="p-3">Online Chat</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<p-toast></p-toast>

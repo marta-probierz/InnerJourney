@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import Typewriter from 't-writer.js';
+
+import { AuthService } from 'src/app/services/auth.service';
+import { MessageNotificationService } from 'src/app/services/message-notification.service';
+import { SpinnerModalService } from 'src/app/services/spinner-modal.service';
 
 @Component({
   selector: 'app-home',
@@ -8,13 +13,22 @@ import Typewriter from 't-writer.js';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
+  isLoggedIn: boolean = false;
 
   constructor(
     private titleService: Title,
+    private authService: AuthService, 
+    private router: Router,
+    private messageNotificationService: MessageNotificationService,
+    private spinnerModalService: SpinnerModalService
   ) {}
 
   ngOnInit() {
     this.titleService.setTitle('Home');
+
+    this.authService.authStateChanged.subscribe((loggedIn) => {
+      this.isLoggedIn = loggedIn;
+    });
 
     const target = document.querySelector('.type');
     const writer = new Typewriter(target, {
@@ -45,5 +59,19 @@ export class HomeComponent implements OnInit {
       .rest(900)
       .clear()
       .start();
+  }
+
+  handleButtonClick() {
+    if (this.isLoggedIn) {
+      this.spinnerModalService.openSpinner();
+      this.authService.logOut().then(() => {
+        setTimeout(() => {
+          this.spinnerModalService.closeSpinner();
+          this.messageNotificationService.showSuccessMessage('You have been successfully logged out');
+        }, 1000);
+      });
+    } else {
+      this.router.navigate(['/login']);
+    }
   }
 }
