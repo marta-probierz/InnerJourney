@@ -3,7 +3,7 @@
     <div class="col-12">
       <div class="d-flex justify-content-between mb-2">
         <app-header></app-header>
-        <button (click)="logOut()" class="btn btn-primary button">Log Out</button>
+        <button (click)="onLogOut()" class="btn btn-primary button">Log Out</button>
       </div>
     </div>
     <div class="dashboard-content">
@@ -15,7 +15,7 @@
       <div class="content-text">
         <div class="container overflow-hidden">
           <div class="row gy-4">
-            <div class="col-12 col-md-5">
+            <div [routerLink]="'/mental-health-tracking'" class="col-12 col-md-5">
               <div class="p-3">Mental Health Tracking</div>
             </div>
             <div class="col-12 col-md-7">

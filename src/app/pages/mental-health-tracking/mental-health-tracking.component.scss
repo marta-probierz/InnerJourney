@@ -1,0 +1,24 @@
+.mental-health-tracking-container {
+  .button {
+    height: 40px;
+    width: 90px;
+  }
+
+  .mental-health-tracking-content {
+    .content-header {
+      color: #0b5ed7;
+      font-size: 48px;
+      line-height: 50px;
+  
+      @media (max-width: 768px) {
+        font-size: 36px;
+        line-height: 45px;
+      }
+  
+      @media (max-width: 576px) {
+        font-size: 24px;
+        line-height: 35px;
+      }
+    }
+  }
+}
