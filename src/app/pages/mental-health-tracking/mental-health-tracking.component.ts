@@ -8,12 +8,11 @@ import { MessageNotificationService } from 'src/app/services/message-notificatio
 import { SpinnerModalService } from 'src/app/services/spinner-modal.service';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  selector: 'app-mental-health-tracking',
+  templateUrl: './mental-health-tracking.component.html',
+  styleUrls: ['./mental-health-tracking.component.scss']
 })
-export class DashboardComponent implements OnInit {
-  currentUser: User | null;
+export class MentalHealthTrackingComponent implements OnInit {
 
   constructor(
     private authService: AuthService, 
@@ -21,17 +20,10 @@ export class DashboardComponent implements OnInit {
     private titleService: Title,
     private messageNotificationService: MessageNotificationService,
     private spinnerModalService: SpinnerModalService
-    ) { }
+  ) {}
 
   ngOnInit(): void {
-    this.titleService.setTitle('Dashboard');
-
-    const storedUser = localStorage.getItem('currentUser');
-    if (storedUser) {
-      this.currentUser = JSON.parse(storedUser);
-    } else {
-      this.currentUser = this.authService.getCurrentUser();
-    }
+    this.titleService.setTitle('Mental Health Tracking');
   }
 
   onLogOut() {

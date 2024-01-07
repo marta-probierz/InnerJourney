@@ -10,6 +10,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { AccordionModule } from 'primeng/accordion';
 import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
+import { MatTabsModule } from '@angular/material/tabs';
 
 import { environment } from 'src/environments/environment';
 import { AppRoutingModule } from './app-routing.module';
@@ -19,6 +20,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { SpinnerModalComponent } from './components/spinner-modal/spinner-modal.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { HeaderComponent } from './components/header/header.component';
+import { MentalHealthTrackingComponent } from './pages/mental-health-tracking/mental-health-tracking.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { HeaderComponent } from './components/header/header.component';
     LoginComponent, 
     SpinnerModalComponent, 
     DashboardComponent, 
-    HeaderComponent
+    HeaderComponent, 
+    MentalHealthTrackingComponent
   ],
   imports: [
     BrowserModule,
@@ -38,6 +41,7 @@ import { HeaderComponent } from './components/header/header.component';
     MatGridListModule,
     MatProgressSpinnerModule,
     ToastModule,
+    MatTabsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
