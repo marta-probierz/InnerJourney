@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getAuth, provideAuth } from '@angular/fire/auth';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
@@ -11,6 +12,8 @@ import { AccordionModule } from 'primeng/accordion';
 import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
 import { MatTabsModule } from '@angular/material/tabs';
+import { RatingModule } from 'primeng/rating';
+import { CheckboxModule } from 'primeng/checkbox';
 
 import { environment } from 'src/environments/environment';
 import { AppRoutingModule } from './app-routing.module';
@@ -21,6 +24,7 @@ import { SpinnerModalComponent } from './components/spinner-modal/spinner-modal.
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { HeaderComponent } from './components/header/header.component';
 import { MentalHealthTrackingComponent } from './pages/mental-health-tracking/mental-health-tracking.component';
+import { DailyMoodTrackerComponent } from './components/daily-mood-tracker/daily-mood-tracker.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +34,8 @@ import { MentalHealthTrackingComponent } from './pages/mental-health-tracking/me
     SpinnerModalComponent, 
     DashboardComponent, 
     HeaderComponent, 
-    MentalHealthTrackingComponent
+    MentalHealthTrackingComponent, 
+    DailyMoodTrackerComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +47,10 @@ import { MentalHealthTrackingComponent } from './pages/mental-health-tracking/me
     MatProgressSpinnerModule,
     ToastModule,
     MatTabsModule,
+    RatingModule,
+    CheckboxModule,
+    FormsModule,
+    ReactiveFormsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),

@@ -1,0 +1,109 @@
+<div class="daily-mood-tracker-container container-fluid mt-3">
+  <div class="row">
+    <div class="col-12">
+      <form [formGroup]="dailyMoodTrackerForm" (ngSubmit)="onSubmitDailyMoodTrackerForm()">
+        <div class="text-center">
+          <h3><span class="date">{{ dailyMoodTrackerForm.get('date').value | date: 'EEEE, MMMM d, y' }}</span></h3>
+        </div>
+        <div class="row">
+          <div class="col-12 col-md-6">
+            <div class="col-12 col-md-6">
+              <h3>Today I Feel</h3>
+              <div class="row mt-3">
+                <div class="col-6" *ngFor="let feeling of feelings.slice(0, feelings.length / 2)">
+                  <p-checkbox 
+                    class="mt-1"
+                    [formControl]="dailyMoodTrackerForm.controls.todayIFeel" 
+                    [value]="feeling.value" 
+                    [label]="feeling.label">
+                  </p-checkbox>
+                </div>
+                <div class="col-6" *ngFor="let feeling of feelings.slice(feelings.length / 2)">
+                  <p-checkbox 
+                    class="mt-1"
+                    [formControl]="dailyMoodTrackerForm.controls.todayIFeel" 
+                    [value]="feeling.value" 
+                    [label]="feeling.label">
+                  </p-checkbox>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 d-flex flex-column justify-content-center align-items-center">
+            <div class="mb-4 mt-5 mt-md-0 text-center">
+              <h3>Love Level</h3>
+              <p-rating formControlName="loveLevel" [cancel]="false">
+                <ng-template pTemplate="onicon">
+                  <i class="pi pi-heart-fill"></i>
+                </ng-template>
+                <ng-template pTemplate="officon">
+                  <i class="pi pi-heart"></i>
+                </ng-template>
+                </p-rating>
+            </div>
+            <div class="mb-4 text-center">
+              <h3>Energy Level</h3>
+              <p-rating formControlName="energyLevel" [cancel]="false">
+                <ng-template pTemplate="onicon">
+                    <img src="../../../assets/images/battery-full.png" alt="battery-full-icon" width="15px" height="30px" />
+                </ng-template>
+                <ng-template pTemplate="officon">
+                    <img src="../../../assets/images/battery-empty.png" alt="battery-full-icon" width="15px" height="30px" />
+                </ng-template>
+                </p-rating>
+            </div>
+            <div class="text-center">
+              <h3>Day Rating</h3>
+              <p-rating formControlName="dayRating" [cancel]="false"></p-rating>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-5 mb-5">
+          <div class="col-12 col-md-4 text-center">
+            <h3>Morning Mood</h3>
+            <p-rating formControlName="morningMood" [cancel]="false">
+              <ng-template pTemplate="onicon">
+                  <img src="../../../assets/images/smile-full.png" alt="smile-full-icon" width="25px" height="25px" />
+              </ng-template>
+              <ng-template pTemplate="officon">
+                  <img src="../../../assets/images/smile-empty.png" alt="smile-full-icon" width="25px" height="25px" />
+              </ng-template>
+              </p-rating>
+          </div>
+          <div class="col-12 col-md-4 mt-5 mt-md-0 text-center">
+            <h3>Afternoom Mood</h3>
+            <p-rating formControlName="afternoomMood" [cancel]="false">
+              <ng-template pTemplate="onicon">
+                  <img src="../../../assets/images/smile-full.png" alt="smile-full-icon" width="25px" height="25px" />
+              </ng-template>
+              <ng-template pTemplate="officon">
+                  <img src="../../../assets/images/smile-empty.png" alt="smile-full-icon" width="25px" height="25px" />
+              </ng-template>
+              </p-rating>
+          </div>
+          <div class="col-12 col-md-4 mt-5 mt-md-0 text-center">
+            <h3>Evening Mood</h3>
+            <p-rating formControlName="eveningMood" [cancel]="false">
+              <ng-template pTemplate="onicon">
+                  <img src="../../../assets/images/smile-full.png" alt="smile-full-icon" width="25px" height="25px" />
+              </ng-template>
+              <ng-template pTemplate="officon">
+                  <img src="../../../assets/images/smile-empty.png" alt="smile-full-icon" width="25px" height="25px" />
+              </ng-template>
+              </p-rating>
+          </div>
+        </div>
+        <div>
+          <button 
+            type="submit" 
+            [disabled]="!dailyMoodTrackerForm.valid" 
+            class="btn btn-primary"
+          >
+            Save
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<p-toast></p-toast>
