@@ -10,4 +10,14 @@
   .pi-heart-fill {
     color: rgba(255, 0, 0, 0.9);
   }
+
+  .mat-mdc-card {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 3rem;
+  }
+
+  .button {
+    height: 40px;
+    width: 90px;
+  }
 }

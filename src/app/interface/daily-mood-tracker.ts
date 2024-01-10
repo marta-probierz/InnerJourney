@@ -9,6 +9,8 @@ export interface DailyMoodTrackerForm {
   morningMood: number;
   afternoomMood: number;
   eveningMood: number;
+  careOfMyself: string[];
+  waterIntake: number;
 }
 
 export interface DailyMoodTrackerGroup {
@@ -20,9 +22,11 @@ export interface DailyMoodTrackerGroup {
   morningMood: FormControl<number>;
   afternoomMood: FormControl<number>;
   eveningMood: FormControl<number>;
+  careOfMyself: FormControl<string[]>;
+  waterIntake: FormControl<number>;
 }
 
-export interface FeelingsProps {
+export interface TrackerProps {
   label: string;
   value: string;
 }

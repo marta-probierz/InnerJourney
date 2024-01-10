@@ -14,6 +14,9 @@ import { ToastModule } from 'primeng/toast';
 import { MatTabsModule } from '@angular/material/tabs';
 import { RatingModule } from 'primeng/rating';
 import { CheckboxModule } from 'primeng/checkbox';
+import { RadioButtonModule } from 'primeng/radiobutton';
+import { MatCardModule } from '@angular/material/card';
+import { MessagesModule } from 'primeng/messages';
 
 import { environment } from 'src/environments/environment';
 import { AppRoutingModule } from './app-routing.module';
@@ -51,6 +54,9 @@ import { DailyMoodTrackerComponent } from './components/daily-mood-tracker/daily
     CheckboxModule,
     FormsModule,
     ReactiveFormsModule,
+    RadioButtonModule,
+    MatCardModule,
+    MessagesModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
