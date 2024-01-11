@@ -17,6 +17,8 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { MatCardModule } from '@angular/material/card';
 import { MessagesModule } from 'primeng/messages';
+import { KnobModule } from 'primeng/knob';
+import { ButtonModule } from 'primeng/button';
 
 import { environment } from 'src/environments/environment';
 import { AppRoutingModule } from './app-routing.module';
@@ -28,6 +30,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { HeaderComponent } from './components/header/header.component';
 import { MentalHealthTrackingComponent } from './pages/mental-health-tracking/mental-health-tracking.component';
 import { DailyMoodTrackerComponent } from './components/daily-mood-tracker/daily-mood-tracker.component';
+import { StressLevelMonitorComponent } from './components/stress-level-monitor/stress-level-monitor.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +41,7 @@ import { DailyMoodTrackerComponent } from './components/daily-mood-tracker/daily
     DashboardComponent, 
     HeaderComponent, 
     MentalHealthTrackingComponent, 
-    DailyMoodTrackerComponent
+    DailyMoodTrackerComponent, StressLevelMonitorComponent
   ],
   imports: [
     BrowserModule,
@@ -57,6 +60,8 @@ import { DailyMoodTrackerComponent } from './components/daily-mood-tracker/daily
     RadioButtonModule,
     MatCardModule,
     MessagesModule,
+    KnobModule,
+    ButtonModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),

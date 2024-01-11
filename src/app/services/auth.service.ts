@@ -1,12 +1,5 @@
 import { Injectable } from '@angular/core';
-import { 
-  Auth, 
-  GoogleAuthProvider, 
-  UserCredential, 
-  signInWithPopup, 
-  signOut, 
-  User 
-} from '@angular/fire/auth';
+import { Auth, GoogleAuthProvider, signInWithPopup, signOut, User } from '@angular/fire/auth';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -30,29 +23,27 @@ export class AuthService {
     return this.currentUser;
   }
 
-  AuthLogin(provider: GoogleAuthProvider) {
-    return signInWithPopup(this.auth, provider)
-      .then((result: UserCredential) => {
-        this.isLoggedInSubject.next(true);
-        this.currentUser = result.user;
-        localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
-      })
-      .catch(() => {
-        this.isLoggedInSubject.next(false);
-        this.currentUser = null;
-      });
+  async AuthLogin(provider: GoogleAuthProvider) {
+    try {
+      const result = await signInWithPopup(this.auth, provider);
+      this.isLoggedInSubject.next(true);
+      this.currentUser = result.user;
+      localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
+    } catch {
+      this.isLoggedInSubject.next(false);
+      this.currentUser = null;
+    }
   }
 
-  logOut() {
+  async logOut() {
     localStorage.removeItem('currentUser');
 
-    return signOut(this.auth)
-      .then(() => {
-        this.isLoggedInSubject.next(false);
-      })
-      .catch((error) => {
-        console.error('Error during logout:', error);
-      });
+    try {
+      await signOut(this.auth);
+      this.isLoggedInSubject.next(false);
+    } catch (error) {
+      console.error('Error during logout:', error);
+    }
   }
 
   isUserLoggedIn(): boolean {
