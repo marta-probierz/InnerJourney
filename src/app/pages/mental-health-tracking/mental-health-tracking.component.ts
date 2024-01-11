@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
-import { User } from '@angular/fire/auth';
 
 import { AuthService } from 'src/app/services/auth.service';
 import { MessageNotificationService } from 'src/app/services/message-notification.service';
