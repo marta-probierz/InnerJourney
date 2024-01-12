@@ -31,6 +31,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { MentalHealthTrackingComponent } from './pages/mental-health-tracking/mental-health-tracking.component';
 import { DailyMoodTrackerComponent } from './components/daily-mood-tracker/daily-mood-tracker.component';
 import { StressLevelMonitorComponent } from './components/stress-level-monitor/stress-level-monitor.component';
+import { MindfulnessAndMeditationTrackerComponent } from './components/mindfulness-and-meditation-tracker/mindfulness-and-meditation-tracker.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,7 @@ import { StressLevelMonitorComponent } from './components/stress-level-monitor/s
     DashboardComponent, 
     HeaderComponent, 
     MentalHealthTrackingComponent, 
-    DailyMoodTrackerComponent, StressLevelMonitorComponent
+    DailyMoodTrackerComponent, StressLevelMonitorComponent, MindfulnessAndMeditationTrackerComponent
   ],
   imports: [
     BrowserModule,

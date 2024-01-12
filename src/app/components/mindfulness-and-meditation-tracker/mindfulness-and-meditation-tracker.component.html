@@ -1,0 +1,42 @@
+<div class="mindfulness-and-meditation-tracker-container container-fluid mt-4">
+  <div class="row">
+    <div class="col-12 mt-2">
+      <mat-card>
+        <p>Initiate a short moment of respite by clicking the "Start" button. It's just 60 seconds that you can dedicate to disconnecting from the daily hustle and focusing on the present moment. Whether you need a moment of relaxation or a short break from a hectic day, Mindfulness and Meditation Tracker is here to assist.</p>
+        <p>Press "Start" and grant yourself a brief pause that can make you feel more focused and relaxed. It's a small gesture that can have a significant impact on your well-being.</p>
+      </mat-card>
+      <div class="timer-container mt-5">
+        <div class="base-timer">
+          <svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <g class="base-timer__circle">
+              <circle class="base-timer__path-elapsed" cx="50" cy="50" r="45"></circle>
+              <path #timer stroke-dasharray="283" class="base-timer__path-remaining arc"
+                    d="
+                      M 50, 50
+                      m -45, 0
+                      a 45,45 0 1,0 90,0
+                      a 45,45 0 1,0 -90,0
+                      "></path>
+            </g>
+          </svg>
+          <span class="base-timer__label" [ngClass]="{ 'get-ready-visible': isGetReadyVisible }">
+            {{ isGetReadyVisible ? 'Get Ready!' : formatTime(timeLeft) }}
+          </span>
+        </div>
+      </div>
+
+      <div class="mt-5 mb-5 text-center">
+        <button (click)="onStart()" [disabled]="isStartBtnDisabled" class="btn btn-primary button">
+          Start
+        </button>
+        <button (click)="onPause()" [disabled]="isPauseBtnDisabled" class="btn btn-primary button">
+          Pause
+        </button>
+        <button (click)="onReset()" class="btn btn-danger button">
+          Reset
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<p-toast></p-toast>
