@@ -19,6 +19,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MessagesModule } from 'primeng/messages';
 import { KnobModule } from 'primeng/knob';
 import { ButtonModule } from 'primeng/button';
+import { CalendarModule } from 'primeng/calendar';
+import { InputTextareaModule } from 'primeng/inputtextarea';
 
 import { environment } from 'src/environments/environment';
 import { AppRoutingModule } from './app-routing.module';
@@ -32,6 +34,7 @@ import { MentalHealthTrackingComponent } from './pages/mental-health-tracking/me
 import { DailyMoodTrackerComponent } from './components/daily-mood-tracker/daily-mood-tracker.component';
 import { StressLevelMonitorComponent } from './components/stress-level-monitor/stress-level-monitor.component';
 import { MindfulnessAndMeditationTrackerComponent } from './components/mindfulness-and-meditation-tracker/mindfulness-and-meditation-tracker.component';
+import { JournalingFeatureComponent } from './components/journaling-feature/journaling-feature.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +45,10 @@ import { MindfulnessAndMeditationTrackerComponent } from './components/mindfulne
     DashboardComponent, 
     HeaderComponent, 
     MentalHealthTrackingComponent, 
-    DailyMoodTrackerComponent, StressLevelMonitorComponent, MindfulnessAndMeditationTrackerComponent
+    DailyMoodTrackerComponent, 
+    StressLevelMonitorComponent, 
+    MindfulnessAndMeditationTrackerComponent, 
+    JournalingFeatureComponent
   ],
   imports: [
     BrowserModule,
@@ -63,6 +69,8 @@ import { MindfulnessAndMeditationTrackerComponent } from './components/mindfulne
     MessagesModule,
     KnobModule,
     ButtonModule,
+    CalendarModule,
+    InputTextareaModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
