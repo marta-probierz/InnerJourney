@@ -13,6 +13,7 @@ import { SpinnerModalService } from 'src/app/services/spinner-modal.service';
 export class JournalingFeatureComponent implements OnInit {
   journalForm: FormGroup<JournalGroup>;
   currentDate = new Date();
+  selected: Date | null;
 
   constructor(
     private messageNotificationService: MessageNotificationService,
@@ -28,6 +29,14 @@ export class JournalingFeatureComponent implements OnInit {
       date: new FormControl(this.currentDate),
       note: new FormControl(null, [Validators.required]),
     });
+  }
+
+  isClearButtonDisabled(): boolean {
+    return this.journalForm.get('note').value === null || this.journalForm.get('note').value.trim() === '';
+  }
+  
+  onClearTextarea() {
+    this.journalForm.get('note').setValue(null);
   }
 
   onSubmitJournalForm() {
