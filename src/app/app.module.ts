@@ -19,8 +19,9 @@ import { MatCardModule } from '@angular/material/card';
 import { MessagesModule } from 'primeng/messages';
 import { KnobModule } from 'primeng/knob';
 import { ButtonModule } from 'primeng/button';
-import { CalendarModule } from 'primeng/calendar';
 import { InputTextareaModule } from 'primeng/inputtextarea';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 import { environment } from 'src/environments/environment';
 import { AppRoutingModule } from './app-routing.module';
@@ -69,7 +70,8 @@ import { JournalingFeatureComponent } from './components/journaling-feature/jour
     MessagesModule,
     KnobModule,
     ButtonModule,
-    CalendarModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     InputTextareaModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
