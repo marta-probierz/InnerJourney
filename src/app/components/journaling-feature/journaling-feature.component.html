@@ -4,8 +4,8 @@
       <mat-card>
         <p>Welcome to your personal journal! Here, you can record your thoughts and emotions. Type your thoughts in the text area below, then use the calendar to review entries for specific days.</p>
       </mat-card>
-      <div class="row mt-5 h-100">
-        <div class="col-12 col-md-6 mt-2">
+      <div class="row mt-5">
+        <div class="col-12 col-md-6 mt-4">
           <form [formGroup]="journalForm" (ngSubmit)="onSubmitJournalForm()">
             <span class="p-float-label">
               <textarea formControlName="note" id="float-input" rows="12" [style]="{'width': '100%'}" pInputTextarea></textarea>
@@ -30,9 +30,18 @@
             </div>
           </form>
         </div>
-        <div class="col-12 col-md-6 mt-2 mb-5">
-          <div class="calendar-container">
-            <mat-calendar [(selected)]="selected"></mat-calendar>
+        <div class="col-12 col-md-6 mb-5">
+          <div *ngIf="showCalendar">
+            <div class="calendar-container">
+              <mat-calendar [(selected)]="selected" (selectedChange)="onDateSelected($event)"></mat-calendar>
+            </div>
+          </div>
+          <div *ngIf="!showCalendar" class="mt-4">
+            <button (click)="showCalendar = true; selected = null" class="btn btn-primary button mb-4">Back</button>
+            <mat-card>
+              <h3>Date: {{ selected | date: 'EEEE, MMMM d, y' }} </h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </mat-card>
           </div>
         </div>
       </div>
