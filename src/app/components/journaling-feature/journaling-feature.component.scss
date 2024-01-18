@@ -14,12 +14,11 @@
   }
 
   .calendar-container {
-    margin-top: -30px;
     display: flex;
     justify-content: center;
 
-    @media (max-width: 576px) {
-      margin-top: -50px;
+    @media (max-width: 768px) {
+      margin-top: 25px;
     }
 
     mat-calendar {

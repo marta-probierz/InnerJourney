@@ -14,6 +14,7 @@ export class JournalingFeatureComponent implements OnInit {
   journalForm: FormGroup<JournalGroup>;
   currentDate = new Date();
   selected: Date | null;
+  showCalendar: boolean = true;
 
   constructor(
     private messageNotificationService: MessageNotificationService,
@@ -37,6 +38,11 @@ export class JournalingFeatureComponent implements OnInit {
   
   onClearTextarea() {
     this.journalForm.get('note').setValue(null);
+  }
+
+  onDateSelected(event: Date) {
+    this.selected = event;
+    this.showCalendar = false;
   }
 
   onSubmitJournalForm() {
