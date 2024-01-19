@@ -1,0 +1,19 @@
+<p-dialog 
+  header="Instructions" 
+  [(visible)]="visibleInstructionDialog" 
+  (onHide)="close.emit()" 
+  [style]="{width: '80vw'}"
+>
+  <ul>
+    <li>Check one or more options that best describe your physical activity for the day.</li>
+    <li>You don't have to check everything at once! It's about being aware of your actions, even the smallest ones.</li>
+    <li>Check daily, even if it's just a short walk or a few minutes of exercise.</li>
+    <li>Be creative! This is a space for various forms of activity, both planned and spontaneous.</li>
+    <li>Include activities from different areas of life – work, home, relationships, or leisure time.</li>
+  </ul>
+  <p>
+    Remember, every checked step toward an active lifestyle matters. Tracking your activity 
+    will help you see progress and maintain motivation. Ready to check your first actions? 
+    Let's get started!
+  </p>
+</p-dialog>

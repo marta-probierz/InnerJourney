@@ -1,0 +1,21 @@
+.activity-and-exercise-tracker-container {
+  .mat-mdc-card {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 3rem 5rem;
+
+    p {
+      font-size: 16px;
+      margin-bottom: 0;
+
+      a {
+        color: #0b5ed7;
+        cursor: pointer;
+        text-decoration: underline;
+      }
+    }
+
+    @media (max-width: 576px) {
+      padding: 1rem;
+    }
+  }
+}
