@@ -1,0 +1,32 @@
+:host {
+  ::ng-deep {
+    .p-dialog {
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+      &-header {
+        padding-left: 5rem;
+        color: #0b5ed7;
+
+        @media (max-width: 576px) {
+          padding: 1rem;
+        }
+      }
+
+      & .p-dialog-content {
+        padding: 1rem 5rem 3rem 5rem;
+
+        @media (max-width: 576px) {
+          padding: 0 1.5rem 2rem 1.5rem;
+        }
+
+        ul {
+          list-style-type: square;
+
+          li::marker {
+            color: #0b5ed7;
+          }
+        }
+      }
+    }
+  }
+}

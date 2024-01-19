@@ -3,6 +3,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Message } from 'primeng/api';
 
 import { TrackerProps, DailyMoodTrackerForm, DailyMoodTrackerGroup } from 'src/app/interface/daily-mood-tracker';
+import { Feelings } from 'src/app/enums/Feelings';
+import { CareOfMyself } from 'src/app/enums/CareOfMyself';
 import { MessageNotificationService } from 'src/app/services/message-notification.service';
 import { SpinnerModalService } from 'src/app/services/spinner-modal.service';
 
@@ -16,39 +18,39 @@ export class DailyMoodTrackerComponent implements OnInit, AfterViewInit {
   messages: Message[] | undefined;
   currentDate = new Date();
   feelings: TrackerProps[] = [
-      { label: 'Happy', value: 'happy' },
-      { label: 'Powerful', value: 'powerful' },
-      { label: 'Motivated', value: 'motivated' },
-      { label: 'Proud', value: 'proud' },
-      { label: 'Relaxed', value: 'relaxed' },
-      { label: 'Satisfield', value: 'satisfield' },
-      { label: 'Grateful', value: 'grateful' },
-      { label: 'Calm', value: 'calm' },
-      { label: 'Loved', value: 'loved' },
-      { label: 'Fine', value: 'fine' },
-      { label: 'Sad', value: 'sad' },
-      { label: 'Lazy', value: 'lazy' },
-      { label: 'Frustrated', value: 'frustrated' },
-      { label: 'Bored', value: 'bored' },
-      { label: 'Anxious', value: 'anxious' },
-      { label: 'Annoyed', value: 'annoyed' },
-      { label: 'Tired', value: 'tired' },
-      { label: 'Depressed', value: 'depressed' },
-      { label: 'Lonely', value: 'lonely' },
-      { label: 'Sick', value: 'sick' },
+      { label: 'Happy', value: Feelings.HAPPY },
+      { label: 'Powerful', value: Feelings.POWERFUL },
+      { label: 'Motivated', value: Feelings.MOTIVATED },
+      { label: 'Proud', value: Feelings.PROUD },
+      { label: 'Relaxed', value: Feelings.RELAXED },
+      { label: 'Satisfield', value: Feelings.SATISFIELD },
+      { label: 'Grateful', value: Feelings.GRATEFUL },
+      { label: 'Calm', value: Feelings.CALM },
+      { label: 'Loved', value: Feelings.LOVED },
+      { label: 'Fine', value: Feelings.FINE },
+      { label: 'Sad', value: Feelings.SAD },
+      { label: 'Lazy', value: Feelings.LAZY },
+      { label: 'Frustrated', value: Feelings.FRUSTRATED },
+      { label: 'Bored', value: Feelings.BORED },
+      { label: 'Anxious', value: Feelings.ANXIOUS },
+      { label: 'Annoyed', value: Feelings.ANNOYED },
+      { label: 'Tired', value: Feelings.TIRED },
+      { label: 'Depressed', value: Feelings.DEPRESSED },
+      { label: 'Lonely', value: Feelings.LONELY },
+      { label: 'Sick', value: Feelings.SICK },
   ];
 
   careOfMyself: TrackerProps[] = [
-    { label: 'Read', value: 'read' },
-    { label: 'Yoga', value: 'yoga' },
-    { label: 'Walk', value: 'walk' },
-    { label: 'Running', value: 'running' },
-    { label: 'Pets', value: 'pets' },
-    { label: 'Music', value: 'music' },
-    { label: 'Movie', value: 'movie' },
-    { label: 'Play Game', value: 'playGame' },
-    { label: 'Extra Sleep', value: 'extraSleep' },
-    { label: 'Food', value: 'food' },
+    { label: 'Read', value: CareOfMyself.READ },
+    { label: 'Yoga', value: CareOfMyself.YOGA },
+    { label: 'Walk', value: CareOfMyself.WALK },
+    { label: 'Running', value: CareOfMyself.RUNNING },
+    { label: 'Pets', value: CareOfMyself.PETS },
+    { label: 'Music', value: CareOfMyself.MUSIC },
+    { label: 'Movie', value: CareOfMyself.MOVIE },
+    { label: 'Play Game', value: CareOfMyself.PLAY_GAME },
+    { label: 'Extra Sleep', value: CareOfMyself.EXTRA_SLEEP },
+    { label: 'Food', value: CareOfMyself.FOOD },
   ]
 
   dailyMoodTrackerForm = new FormGroup<DailyMoodTrackerGroup>({

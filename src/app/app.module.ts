@@ -22,6 +22,7 @@ import { ButtonModule } from 'primeng/button';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { DialogModule } from 'primeng/dialog';
 
 import { environment } from 'src/environments/environment';
 import { AppRoutingModule } from './app-routing.module';
@@ -36,6 +37,8 @@ import { DailyMoodTrackerComponent } from './components/daily-mood-tracker/daily
 import { StressLevelMonitorComponent } from './components/stress-level-monitor/stress-level-monitor.component';
 import { MindfulnessAndMeditationTrackerComponent } from './components/mindfulness-and-meditation-tracker/mindfulness-and-meditation-tracker.component';
 import { JournalingFeatureComponent } from './components/journaling-feature/journaling-feature.component';
+import { ActivityAndExerciseTrackerComponent } from './components/activity-and-exercise-tracker/activity-and-exercise-tracker.component';
+import { InstructionDialogComponent } from './components/activity-and-exercise-tracker/instruction-dialog/instruction-dialog.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +52,8 @@ import { JournalingFeatureComponent } from './components/journaling-feature/jour
     DailyMoodTrackerComponent, 
     StressLevelMonitorComponent, 
     MindfulnessAndMeditationTrackerComponent, 
-    JournalingFeatureComponent
+    JournalingFeatureComponent, 
+    ActivityAndExerciseTrackerComponent, InstructionDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -73,6 +77,7 @@ import { JournalingFeatureComponent } from './components/journaling-feature/jour
     MatDatepickerModule,
     MatNativeDateModule,
     InputTextareaModule,
+    DialogModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
