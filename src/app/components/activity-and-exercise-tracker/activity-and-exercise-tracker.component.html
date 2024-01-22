@@ -10,7 +10,24 @@
         </p>
       </mat-card>
       <div class="form-container mt-5">
-
+        <form class="d-flex flex-column align-items-center gap-1" [formGroup]="activityAndExerciseForm" (ngSubmit)="onSubmitActivityAndExerciseForm()">
+          <div formArrayName="todayActivityAndExercise">
+            <div *ngFor="let option of activityAndExercise; let i = index">
+              <div [formGroupName]="i">
+                <p-checkbox [formControl]="getCheckboxControl(i)" [value]="option.value" [inputId]="option.value"></p-checkbox>
+                <label [for]="option.value">{{ option.label }}</label>
+                <p>{{ option.description }}</p>
+              </div>
+            </div>
+          </div>
+          <div class="mt-4 text-center">
+            <button 
+              type="submit" 
+              class="btn btn-primary button">
+              Save
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
