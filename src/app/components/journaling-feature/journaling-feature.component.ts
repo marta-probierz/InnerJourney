@@ -4,6 +4,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { JournalForm, JournalGroup } from 'src/app/interface/journaling-feature';
 import { MessageNotificationService } from 'src/app/services/message-notification.service';
 import { SpinnerModalService } from 'src/app/services/spinner-modal.service';
+import { MentalHealthTrackingService } from 'src/app/services/mental-health-tracking.service';
 
 @Component({
   selector: 'app-journaling-feature',
@@ -18,7 +19,8 @@ export class JournalingFeatureComponent implements OnInit {
 
   constructor(
     private messageNotificationService: MessageNotificationService,
-    private spinnerModalService: SpinnerModalService
+    private spinnerModalService: SpinnerModalService,
+    private mentalHealthTrackingService: MentalHealthTrackingService,
   ) { }
 
   ngOnInit(): void {
@@ -51,6 +53,19 @@ export class JournalingFeatureComponent implements OnInit {
     }
 
     const todayJournal: JournalForm = this.journalForm.value as JournalForm;
-    console.log(todayJournal);
+
+    this.spinnerModalService.openSpinner();
+
+    this.mentalHealthTrackingService.addJournalForm(todayJournal).subscribe({
+      next: () => {
+        this.journalForm.reset();
+        this.spinnerModalService.closeSpinner();
+        this.messageNotificationService.showSuccessMessage('Journal entry saved successfully! 📓✨');
+      },
+      error: () => {
+        this.spinnerModalService.closeSpinner();
+        this.messageNotificationService.showErrorMessage('Something went wrong. Please try again');
+      }
+    });
   }
 }
