@@ -11,7 +11,8 @@ export const environment = {
     storageBucket: "innerjourney-13549.appspot.com",
     messagingSenderId: "173615227598",
     appId: "1:173615227598:web:0c71fd6009e3d7e7c5669f",
-    measurementId: "G-6THTL9FVZP"
+    measurementId: "G-6THTL9FVZP",
+    databaseURL: "https://innerjourney-13549-default-rtdb.firebaseio.com/"
   }
 };
 
