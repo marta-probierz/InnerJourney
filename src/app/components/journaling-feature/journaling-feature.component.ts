@@ -16,6 +16,8 @@ export class JournalingFeatureComponent implements OnInit {
   currentDate = new Date();
   selected: Date | null;
   showCalendar: boolean = true;
+  journalForms: JournalForm[] = [];
+  selectedJournalEntries: JournalForm[] = [];
 
   constructor(
     private messageNotificationService: MessageNotificationService,
@@ -25,6 +27,7 @@ export class JournalingFeatureComponent implements OnInit {
 
   ngOnInit(): void {
     this.initJournalForm();
+    this.loadJournalForms();
   }
 
   initJournalForm() {
@@ -45,6 +48,19 @@ export class JournalingFeatureComponent implements OnInit {
   onDateSelected(event: Date) {
     this.selected = event;
     this.showCalendar = false;
+
+    this.selectedJournalEntries = this.journalForms.filter(entry => {
+      const entryDate = entry.date ? (entry.date as any).toDate() : null;
+      return this.isSameDay(entryDate, this.selected);
+    });
+  }
+
+  isSameDay(date1: Date, date2: Date): boolean {
+    return (
+      date1.getFullYear() === date2.getFullYear() &&
+      date1.getMonth() === date2.getMonth() &&
+      date1.getDate() === date2.getDate()
+    );
   }
 
   onSubmitJournalForm() {
@@ -61,10 +77,26 @@ export class JournalingFeatureComponent implements OnInit {
         this.journalForm.reset();
         this.spinnerModalService.closeSpinner();
         this.messageNotificationService.showSuccessMessage('Journal entry saved successfully! 📓✨');
+        this.loadJournalForms();
       },
       error: () => {
         this.spinnerModalService.closeSpinner();
         this.messageNotificationService.showErrorMessage('Something went wrong. Please try again');
+      }
+    });
+  }
+
+  loadJournalForms() {
+    this.mentalHealthTrackingService.getAllJournalForms().subscribe({
+      next: (journalForms: JournalForm[]) => {
+        this.journalForms = journalForms;
+
+        if (this.selected) {
+          this.selectedJournalEntries = this.journalForms.filter(entry => this.isSameDay(new Date(entry.date), this.selected));
+        }
+      },
+      error: (error) => {
+        console.error('Error fetching journal forms:', error);
       }
     });
   }
